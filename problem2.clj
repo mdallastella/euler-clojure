@@ -10,4 +10,6 @@
 (defn take-fib-less-then-4mln []
   (take-while (partial > 4000000) (fib 1 1)))
 
-(println (reduce + (filter #(even? %) (take-fib-less-then-4mln))))
+(println (->> (take-fib-less-then-4mln)
+              (filter #(even? %))
+              (reduce +)))
